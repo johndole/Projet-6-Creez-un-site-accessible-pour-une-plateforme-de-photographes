@@ -8,7 +8,8 @@ import { displayModal, closeModal, validateForm } from "../utils/contactForm";
 import { Media } from "../models/media";
 import { showLightbox } from "../utils/lightBoxModal";
 import { initDropdown, toggleDropdown } from "../utils/SortGallery";
-import { updateLikes } from "../utils/likes";
+import { updateLikes } from "../utils/likes"; 
+
 
 
 document.addEventListener('DOMContentLoaded', function () {

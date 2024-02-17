@@ -73,6 +73,7 @@ export function mediaTemplate(media: Media) {
     const altText = media.liked ? "Action ne pas aimer" : "Action aimer";
     likesIconElement.setAttribute("alt", altText);
 
+    
     likesIconElement.addEventListener("click", () => {
       media.liked = !media.liked;
       media.likes += media.liked ? 1 : -1;
