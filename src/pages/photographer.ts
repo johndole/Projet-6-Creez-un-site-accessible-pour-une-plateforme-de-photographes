@@ -125,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Trouver l'index de l'image dans le tableau mediaItems
     const clickedImageId = clickedImage.dataset.mediaId;
     console.log("Clicked image ID:", clickedImageId);
+    
 
     const currentIndex = mediaItems.findIndex((media) => media.id.toString() === clickedImageId);
     console.log("Found index:", currentIndex);
