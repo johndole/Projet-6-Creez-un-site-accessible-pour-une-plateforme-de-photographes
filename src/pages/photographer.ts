@@ -100,7 +100,6 @@ document.addEventListener('DOMContentLoaded', function () {
         updateLikes(mediaItems);
 
 
-
         // Attach click event listener to the dropdown for sorting
         initDropdown(mediaItems, mediaTemplate, "gallery");
         toggleDropdown();
@@ -125,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Trouver l'index de l'image dans le tableau mediaItems
     const clickedImageId = clickedImage.dataset.mediaId;
     console.log("Clicked image ID:", clickedImageId);
-    
+
 
     const currentIndex = mediaItems.findIndex((media) => media.id.toString() === clickedImageId);
     console.log("Found index:", currentIndex);
