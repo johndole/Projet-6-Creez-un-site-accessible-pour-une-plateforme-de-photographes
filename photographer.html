@@ -31,181 +31,195 @@
       </a>
     </header>
 
-    <div class="dropdown__section">
-      <label for="sortDropdown" class="sort__p">Trier par</label>
-      <div class="dropdown">
+    <main id="main">
+      <div class="photographer__section">
+        <div class="photograph-header" aria-labelledby="contactButton"></div>
         <button
-          role="option"
-          class="btn sort__button"
           tabindex="1"
-          aria-selected="true"
-          data-value="popularity"
+          class="btn contact_button"
+          id="contactButton"
+          aria-haspopup="dialog"
         >
-          Popularity
+          Contactez-moi
         </button>
-        <div class="sort__dropdown" role="listbox" aria-label="Sort by">
+        <div class="photograph-portrait"></div>
+      </div>
+      <div class="dropdown__section">
+        <label for="sortDropdown" class="sort__p">Trier par</label>
+        <div class="dropdown">
           <button
             role="option"
             class="btn sort__button"
-            aria-selected="false"
             tabindex="1"
-            data-value="date"
+            aria-selected="true"
+            data-value="popularity"
           >
-            Date
+            Popularity
           </button>
-          <button
-            role="option"
-            class="btn sort__button"
-            aria-selected="false"
-            tabindex="1"
-            data-value="title"
-          >
-            Title
-          </button>
+          <div class="sort__dropdown" role="listbox" aria-label="Sort by">
+            <button
+              role="option"
+              class="btn sort__button"
+              aria-selected="false"
+              tabindex="1"
+              data-value="date"
+            >
+              Date
+            </button>
+            <button
+              role="option"
+              class="btn sort__button"
+              aria-selected="false"
+              tabindex="1"
+              data-value="title"
+            >
+              Title
+            </button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="media_section">
-      <div id="gallery" class="gallery-container"></div>
-    </div>
+      <div class="media_section">
+        <div id="gallery" class="gallery-container"></div>
+      </div>
 
-    <div class="lightbox" tabindex="0" aria-hidden="false">
-      <img
-        tabindex="0"
-        src="assets/icons/closelightbox.svg"
-        class="lightbox__close"
-        alt="close-button"
-      />
-      <button class="lightbox__next">
-        <span class="fa-solid fa-chevron-right"></span>
-      </button>
-      <button class="lightbox__prev">
-        <span class="fa-solid fa-chevron-left"></span>
-      </button>
-      <div class="lightbox__container"></div>
-    </div>
-
-    <div id="div__total-likes" aria-live="polite">
-      <div class="total-likes-heart">
-        <div class="total-likes" id="total-likes"></div>
+      <div class="lightbox" tabindex="0" aria-hidden="false">
         <img
-          src="/assets/icons/heart-icon-total.svg"
-          alt="heart icon"
-          class="heart-total-likes"
-        />
-      </div>
-      <div
-        class="daily-price-photographer"
-        id="daily-price-photographer"
-      ></div>
-    </div>
-  </main>
-  <div
-  tabindex="0"
-  id="contact_modal"
-  role="dialog"
-  aria-hidden="true"
-  aria-label="Contact Form"
->
-  <div class="modal">
-    <header>
-      <div class="header-form">
-        <h2>Contactez-moi</h2>
-      </div>
-      <img
-        tabindex="0"
-        src="assets/icons/close.svg"
-        class="closeButton"
-        alt="form close button"
-      />
-    </header>
-    <form name="contact" action="#" method="post">
-      <div class="input-field field">
-        <label for="firstname">Prénom</label>
-        <input
           tabindex="0"
-          aria-label="First name"
-          class="item"
-          type="text"
-          autofocus
-          id="firstname"
-          name="first"
-          minlength="2"
+          src="assets/icons/closelightbox.svg"
+          class="lightbox__close"
+          alt="close-button"
         />
-        <span
-          id="firstNameError"
-          class="error-message"
-          aria-live="polite"
-        ></span>
+        <button class="lightbox__next">
+          <span class="fa-solid fa-chevron-right"></span>
+        </button>
+        <button class="lightbox__prev">
+          <span class="fa-solid fa-chevron-left"></span>
+        </button>
+        <div class="lightbox__container"></div>
       </div>
-      <div class="input-field field">
-        <label for="lastname">Nom</label>
-        <input
-          tabindex="0"
-          aria-label="Last name"
-          class="item"
-          type="text"
-          id="lastname"
-          name="last"
-          minlength="2"
-          autocomplete="off"
-        />
-        <span
-          id="lastNameError"
-          class="error-message"
-          aria-live="polite"
-        ></span>
-      </div>
-      <div class="input-field field">
-        <label for="email">E-mail</label>
-        <input
-          tabindex="0"
-          aria-label="Email"
-          class="item"
-          type="email"
-          id="email"
-          name="email"
-          autocomplete="off"
-        />
-        <span
-          id="emailError"
-          class="error-message"
-          aria-live="polite"
-        ></span>
-      </div>
-      <div class="input-field field">
-        <label for="message">Votre message</label>
-        <textarea
-          tabindex="0"
-          aria-label="Message"
-          class="item"
-          id="message"
-          name="message"
-          rows="00"
-          cols="67"
-          autocomplete="off"
-        ></textarea>
-        <span
-          id="messageError"
-          class="error-message"
-          aria-live="polite"
-        ></span>
-      </div>
-      <input
-        tabindex="0"
-        aria-label="Submit"
-        class="btn submit"
-        type="submit"
-        value="C'est parti"
-        id="btn-modalsubmit"
-      />
-    </form>
-  </div>
-</div>
 
-<script type="module" src="/src/pages/photographer.ts"></script>
-<script async src="https://cdn.jsdelivr.net/npm/sweetalert2@0"></script>
-<script async src="https://smtpjs.com/v3/smtp.js"></script>
-</body>
+      <div id="div__total-likes" aria-live="polite">
+        <div class="total-likes-heart">
+          <div class="total-likes" id="total-likes"></div>
+          <img
+            src="/assets/icons/heart-icon-total.svg"
+            alt="heart icon"
+            class="heart-total-likes"
+          />
+        </div>
+        <div
+          class="daily-price-photographer"
+          id="daily-price-photographer"
+        ></div>
+      </div>
+    </main>
+
+    <div
+      tabindex="0"
+      id="contact_modal"
+      role="dialog"
+      aria-hidden="true"
+      aria-label="Contact Form"
+    >
+      <div class="modal">
+        <header>
+          <div class="header-form">
+            <h2>Contactez-moi</h2>
+          </div>
+          <img
+            tabindex="0"
+            src="assets/icons/close.svg"
+            class="closeButton"
+            alt="form close button"
+          />
+        </header>
+        <form name="contact" action="#" method="post">
+          <div class="input-field field">
+            <label for="firstname">Prénom</label>
+            <input
+              tabindex="0"
+              aria-label="First name"
+              class="item"
+              type="text"
+              autofocus
+              id="firstname"
+              name="first"
+              minlength="2"
+            />
+            <span
+              id="firstNameError"
+              class="error-message"
+              aria-live="polite"
+            ></span>
+          </div>
+          <div class="input-field field">
+            <label for="lastname">Nom</label>
+            <input
+              tabindex="0"
+              aria-label="Last name"
+              class="item"
+              type="text"
+              id="lastname"
+              name="last"
+              minlength="2"
+              autocomplete="off"
+            />
+            <span
+              id="lastNameError"
+              class="error-message"
+              aria-live="polite"
+            ></span>
+          </div>
+          <div class="input-field field">
+            <label for="email">E-mail</label>
+            <input
+              tabindex="0"
+              aria-label="Email"
+              class="item"
+              type="email"
+              id="email"
+              name="email"
+              autocomplete="off"
+            />
+            <span
+              id="emailError"
+              class="error-message"
+              aria-live="polite"
+            ></span>
+          </div>
+          <div class="input-field field">
+            <label for="message">Votre message</label>
+            <textarea
+              tabindex="0"
+              aria-label="Message"
+              class="item"
+              id="message"
+              name="message"
+              rows="00"
+              cols="67"
+              autocomplete="off"
+            ></textarea>
+            <span
+              id="messageError"
+              class="error-message"
+              aria-live="polite"
+            ></span>
+          </div>
+          <input
+            tabindex="0"
+            aria-label="Submit"
+            class="btn submit"
+            type="submit"
+            value="C'est parti"
+            id="btn-modalsubmit"
+          />
+        </form>
+      </div>
+    </div>
+
+    <script type="module" src="/src/pages/photographer.ts"></script>
+    <script async src="https://cdn.jsdelivr.net/npm/sweetalert2@0"></script>
+    <script async src="https://smtpjs.com/v3/smtp.js"></script>
+  </body>
 </html>
