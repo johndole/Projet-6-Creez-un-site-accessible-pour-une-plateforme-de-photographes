@@ -221,7 +221,13 @@ function clearRegistrationForm() {
   console.log("Form cleared");
 }
 
-
+modal?.addEventListener("keydown", function (event) {
+  // Check if the pressed key is Enter
+  if (event.key === "Escape") {
+    // Simulate left-click action on the element
+    closeModal();
+  }
+});
 
 
 export { sendEmail, clearRegistrationForm, displayModal, closeModal, validateForm }
