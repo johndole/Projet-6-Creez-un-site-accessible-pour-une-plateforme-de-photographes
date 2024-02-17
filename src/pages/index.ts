@@ -36,3 +36,15 @@ async function init() {
 
 init();
 });
+
+document.addEventListener('keydown', function(event) {
+  // Check if the pressed key is Enter
+  if (event.key === "Enter") {
+    // Simulate left-click action on the element
+    let focusedElement = document.activeElement as HTMLElement;
+    if (focusedElement) {
+      // Trigger a click event on the focused element
+      focusedElement.click();
+    }
+  }
+});
