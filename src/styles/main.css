@@ -1,47 +1,146 @@
 body {
     font-family: "DM Sans", sans-serif;
     margin: 0;
-}
-
-header {
+  }
+  
+  /************ PAGE LOADER ***********/
+  #loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .loader-spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    height: 90px;
-}
-
-h1 {
-    color: #901C1C;
-    margin-right: 100px;
-}
-
-.logo {
+    margin-top: 42px;
+    flex-wrap: wrap;
+  }
+  
+  h1 {
+    color: #901c1c;
+    font-size: 36px;
+    font-weight: 400;
+    margin: 0 100px;
+  }
+  
+  .logo {
     height: 50px;
     margin-left: 100px;
-}
-
-.photographer_section {
+  }
+  
+  /*********** PHOTOGRAPHER SECTION ***********/
+  
+  .photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
     margin-top: 100px;
-}
-
-.photographer_section article {
+    align-items: start;
+  }
+  
+  .photographer_card {
     justify-self: center;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-
-.photographer_section article h2 {
-    color: #D3573C;
-    font-size: 36px;
-}
-
-.photographer_section article img {
+    cursor: pointer;
+  }
+  
+  .imgElement {
     height: 200px;
     width: 200px;
-}
+    border-radius: 60%;
+    object-fit: cover;
+  }
+  
+  .nameElement {
+    color: #d3573c;
+    font-size: 36px;
+    font-weight: 400;
+    margin: 0;
+    text-align: center;
+  }
+  
+  .locationElement {
+    color: #901c1c;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+  }
+  
+  .taglineElement {
+    color: #000;
+    font-size: 10px;
+    font-weight: 400;
+    margin: 0;
+  }
+  
+  .dailyPrice {
+    color: #757575;
+    font-size: 9px;
+    font-weight: 400;
+    margin-top: 3px;
+  }
+  
+  /******************* MEDIA QUERIES *******************/
+  @media screen and (max-width: 1024px) {
+  
+    .nameElement {
+      font-size: 2rem;
+    
+    }
+     .locationElement {
+      font-size: 1.5rem;
+      text-align: center;
+    
+    }
+    .taglineElement {
+      font-size: 0.8rem;
+      text-align: center;
+    }
+   
+  }
+  
+  @media screen and (max-width: 480px) {
+  
+    header {
+      justify-content: center;
+    }
+    .logo,
+    h1  {
+      margin: 0;
+    }
+    .photographer_section {
+      grid-template-columns:1fr;
+      margin-top: 50px;
+      gap: 25px;
+    }
+    
+  }
+  
+  
+  
