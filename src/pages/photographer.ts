@@ -8,8 +8,7 @@ import { displayModal, closeModal, validateForm } from "../utils/contactForm";
 import { Media } from "../models/media";
 import { showLightbox } from "../utils/lightBoxModal";
 import { initDropdown, toggleDropdown } from "../utils/SortGallery";
-import { updateLikes } from "../utils/likes"; 
-
+import { updateLikes } from "../utils/likes";
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -100,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updateLikes(mediaItems);
 
 
+
         // Attach click event listener to the dropdown for sorting
         initDropdown(mediaItems, mediaTemplate, "gallery");
         toggleDropdown();
@@ -125,7 +125,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const clickedImageId = clickedImage.dataset.mediaId;
     console.log("Clicked image ID:", clickedImageId);
 
-
     const currentIndex = mediaItems.findIndex((media) => media.id.toString() === clickedImageId);
     console.log("Found index:", currentIndex);
 
@@ -139,6 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+
   document.addEventListener('keydown', function (event) {
     // Check if the pressed key is Enter (key code 13)
     if (event.key === "Enter") {
@@ -150,7 +150,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
   });
-  
 
 
 
