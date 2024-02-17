@@ -138,7 +138,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-
+  document.addEventListener('keydown', function (event) {
+    // Check if the pressed key is Enter (key code 13)
+    if (event.key === "Enter") {
+      // Simulate left-click action on the element with id "myButton"
+      var focusedElement = document.activeElement as HTMLElement;
+      if (focusedElement) {
+        // Trigger a click event on the focused element
+        focusedElement.click();
+      }
+    }
+  });
   
 
 
