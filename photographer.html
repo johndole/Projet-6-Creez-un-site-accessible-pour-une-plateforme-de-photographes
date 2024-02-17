@@ -101,21 +101,111 @@
       ></div>
     </div>
   </main>
-    <div id="contact_modal">
-      <div class="modal">
-        <header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-        <form>
-          <div>
-            <label>Prénom</label>
-            <input />
-          </div>
-          <button class="contact_button">Envoyer</button>
-        </form>
+  <div
+  tabindex="0"
+  id="contact_modal"
+  role="dialog"
+  aria-hidden="true"
+  aria-label="Contact Form"
+>
+  <div class="modal">
+    <header>
+      <div class="header-form">
+        <h2>Contactez-moi</h2>
       </div>
-    </div>
-    <script type="module" src="/src/pages/photographer.ts"></script>
-  </body>
+      <img
+        tabindex="0"
+        src="assets/icons/close.svg"
+        class="closeButton"
+        alt="form close button"
+      />
+    </header>
+    <form name="contact" action="#" method="post">
+      <div class="input-field field">
+        <label for="firstname">Prénom</label>
+        <input
+          tabindex="0"
+          aria-label="First name"
+          class="item"
+          type="text"
+          autofocus
+          id="firstname"
+          name="first"
+          minlength="2"
+        />
+        <span
+          id="firstNameError"
+          class="error-message"
+          aria-live="polite"
+        ></span>
+      </div>
+      <div class="input-field field">
+        <label for="lastname">Nom</label>
+        <input
+          tabindex="0"
+          aria-label="Last name"
+          class="item"
+          type="text"
+          id="lastname"
+          name="last"
+          minlength="2"
+          autocomplete="off"
+        />
+        <span
+          id="lastNameError"
+          class="error-message"
+          aria-live="polite"
+        ></span>
+      </div>
+      <div class="input-field field">
+        <label for="email">E-mail</label>
+        <input
+          tabindex="0"
+          aria-label="Email"
+          class="item"
+          type="email"
+          id="email"
+          name="email"
+          autocomplete="off"
+        />
+        <span
+          id="emailError"
+          class="error-message"
+          aria-live="polite"
+        ></span>
+      </div>
+      <div class="input-field field">
+        <label for="message">Votre message</label>
+        <textarea
+          tabindex="0"
+          aria-label="Message"
+          class="item"
+          id="message"
+          name="message"
+          rows="00"
+          cols="67"
+          autocomplete="off"
+        ></textarea>
+        <span
+          id="messageError"
+          class="error-message"
+          aria-live="polite"
+        ></span>
+      </div>
+      <input
+        tabindex="0"
+        aria-label="Submit"
+        class="btn submit"
+        type="submit"
+        value="C'est parti"
+        id="btn-modalsubmit"
+      />
+    </form>
+  </div>
+</div>
+
+<script type="module" src="/src/pages/photographer.ts"></script>
+<script async src="https://cdn.jsdelivr.net/npm/sweetalert2@0"></script>
+<script async src="https://smtpjs.com/v3/smtp.js"></script>
+</body>
 </html>
