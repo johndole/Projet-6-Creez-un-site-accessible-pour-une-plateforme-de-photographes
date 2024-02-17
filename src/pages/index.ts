@@ -37,6 +37,8 @@ async function init() {
 init();
 });
 
+
+
 document.addEventListener('keydown', function(event) {
   // Check if the pressed key is Enter
   if (event.key === "Enter") {
