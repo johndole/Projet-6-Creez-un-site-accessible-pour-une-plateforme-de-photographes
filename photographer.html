@@ -31,20 +31,76 @@
       </a>
     </header>
 
-    <main id="main">
-      <div class="photographer__section">
-        <div class="photograph-header" aria-labelledby="contactButton"></div>
+    <div class="dropdown__section">
+      <label for="sortDropdown" class="sort__p">Trier par</label>
+      <div class="dropdown">
         <button
+          role="option"
+          class="btn sort__button"
           tabindex="1"
-          class="btn contact_button"
-          id="contactButton"
-          aria-haspopup="dialog"
+          aria-selected="true"
+          data-value="popularity"
         >
-          Contactez-moi
+          Popularity
         </button>
-        <div class="photograph-portrait"></div>
+        <div class="sort__dropdown" role="listbox" aria-label="Sort by">
+          <button
+            role="option"
+            class="btn sort__button"
+            aria-selected="false"
+            tabindex="1"
+            data-value="date"
+          >
+            Date
+          </button>
+          <button
+            role="option"
+            class="btn sort__button"
+            aria-selected="false"
+            tabindex="1"
+            data-value="title"
+          >
+            Title
+          </button>
+        </div>
       </div>
-    </main>
+    </div>
+
+    <div class="media_section">
+      <div id="gallery" class="gallery-container"></div>
+    </div>
+
+    <div class="lightbox" tabindex="0" aria-hidden="false">
+      <img
+        tabindex="0"
+        src="assets/icons/closelightbox.svg"
+        class="lightbox__close"
+        alt="close-button"
+      />
+      <button class="lightbox__next">
+        <span class="fa-solid fa-chevron-right"></span>
+      </button>
+      <button class="lightbox__prev">
+        <span class="fa-solid fa-chevron-left"></span>
+      </button>
+      <div class="lightbox__container"></div>
+    </div>
+
+    <div id="div__total-likes" aria-live="polite">
+      <div class="total-likes-heart">
+        <div class="total-likes" id="total-likes"></div>
+        <img
+          src="/assets/icons/heart-icon-total.svg"
+          alt="heart icon"
+          class="heart-total-likes"
+        />
+      </div>
+      <div
+        class="daily-price-photographer"
+        id="daily-price-photographer"
+      ></div>
+    </div>
+  </main>
     <div id="contact_modal">
       <div class="modal">
         <header>
