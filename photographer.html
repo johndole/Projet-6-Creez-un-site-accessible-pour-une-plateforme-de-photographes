@@ -1,18 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="assets/favicon.png" />
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
-    <title>Fisheye - photographe</title>
+    <link rel="stylesheet" href="src/styles/photographer.css" />
+    <link rel="stylesheet" href="src/styles/main.css" />
+    <script
+      src="https://kit.fontawesome.com/22c602cd72.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <title>Fisheye - Photographer</title>
   </head>
   <body>
+    <div id="loader">
+      <div class="loader-spinner"></div>
+    </div>
+
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="index.html" role="link">
+        <img
+          tabindex="1"
+          src="assets/images/logo.png"
+          class="logo"
+          alt="Fisheye logo"
+        />
+      </a>
     </header>
+
     <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      <div class="photographer__section">
+        <div class="photograph-header" aria-labelledby="contactButton"></div>
+        <button
+          tabindex="1"
+          class="btn contact_button"
+          id="contactButton"
+          aria-haspopup="dialog"
+        >
+          Contactez-moi
+        </button>
+        <div class="photograph-portrait"></div>
       </div>
     </main>
     <div id="contact_modal">
