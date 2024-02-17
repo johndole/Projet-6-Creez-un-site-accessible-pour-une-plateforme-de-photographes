@@ -56,34 +56,3 @@ export async function getPhotographersMedia(): Promise<Media[]> {
 
 }
 
-/*
-
-export async function updateLikesOnServer(mediaId: number, newLikes: number, likedState: boolean): Promise<Media> {
-  try {
-    const response = await fetch(`http://localhost:3000/media/${mediaId}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        likes: newLikes,
-        liked: likedState,
-      }),
-    });
-
-    if (!response.ok) {
-      throw new Error(`Failed to update likes on the server. Status: ${response.status}`);
-    }
-
-    const updatedMedia: Media = await response.json();
-    console.log('Updated media on the server:', updatedMedia);
-    
-    return updatedMedia;
-  } catch (error) {
-    console.error('Error updating likes on the server:', error);
-    throw error; // Rethrow the error to propagate it to the caller
-  }
-}
-
-
-*/
