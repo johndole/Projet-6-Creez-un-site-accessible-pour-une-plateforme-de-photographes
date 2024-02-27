@@ -75,11 +75,11 @@ export const initDropdown = (
     console.error("Gallery container or sort buttons not found");
   }
 };
-
-
+const dropdownbtn = document.querySelector('.dropdown');
 export const toggleDropdown = () => {
-  dropdownContainer.style.display =
-    dropdownContainer.style.display === "flex" ? "none" : "flex";
+  dropdownContainer.classList.toggle("open");
+  dropdownbtn?.classList.toggle("active");
+   
 };
 
 // Get all buttons with the class 'dropdown-option'
@@ -98,7 +98,6 @@ dropdownContainer.addEventListener("click", (event) => {
   ) as HTMLButtonElement;
   const newSelectedOptionHtml = event.target;
   // onSortChange(selectedValue);
-  // TODO revoir l'event listener car chaque bouton a gardé son event initial
   oldSelectedOptionHtml.parentNode?.insertBefore(
     newSelectedOptionHtml,
     oldSelectedOptionHtml
