@@ -6,8 +6,6 @@ const form = document.querySelector("form") as HTMLFormElement;
 const urlParams = new URLSearchParams(window.location.search);
 const photographerId = urlParams.get("id");
 
-
-
 declare const Email: {
   send: (emailData: any) => Promise<string>;
 };
@@ -61,8 +59,6 @@ const errorFields = {
   email: document.getElementById("emailError") as HTMLElement,
   message: document.getElementById("messageError") as HTMLElement,
 };
-
-
 
 function displayModal() {
   if (modal) {
