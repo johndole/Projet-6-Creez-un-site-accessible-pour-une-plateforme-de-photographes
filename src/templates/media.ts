@@ -1,13 +1,22 @@
 import { Media } from "../models/media";
 
+  //type
+  abstract class MediaElement {
+    constructor(protected media: Media) {}
+  
+    abstract createElement(): HTMLElement;
+  }
+
 export function mediaTemplate(media: Media) {
   const { id, photographerId, title, image, video, likes, date, price } = media;
 
-  function createImageHtmlElement() {
+  //sous class FP
+  class ImageElement extends MediaElement {
+    createElement(): HTMLElement {
     const imgElement = document.createElement("img");
     imgElement.classList.add("imgElement_media", "media-element");
     imgElement.setAttribute("src", image);
-    imgElement.setAttribute("alt", "");
+    imgElement.setAttribute("alt", title);
     imgElement.setAttribute("date", date);
     imgElement.dataset.mediaId = id.toString();
     
@@ -17,12 +26,15 @@ export function mediaTemplate(media: Media) {
 
     return imgElement;
   }
+}
 
-  function createVideoHtmlElement() {
+//Sous class FP
+class VideoElement extends MediaElement {
+  createElement(): HTMLElement {
     const videoElement = document.createElement("video");
     videoElement.classList.add("videoElement_media", "media-element");
     videoElement.setAttribute("src", video);
-    videoElement.setAttribute("alt", "");
+    videoElement.setAttribute("alt", title);
     videoElement.setAttribute("date", date);
     videoElement.src = video;
     videoElement.controls = true;
@@ -36,6 +48,17 @@ export function mediaTemplate(media: Media) {
 
     return videoElement;
   }
+}
+// Factory function
+function createMediaElement() {
+  if (media.image) {
+    return new ImageElement(media).createElement();
+  } else if (media.video) {
+    return new VideoElement(media).createElement();
+  } else {
+    throw new Error("Media type not supported");
+  }
+}
 
   function getUserMediaDOM() {
 
@@ -45,9 +68,7 @@ export function mediaTemplate(media: Media) {
     article.classList.add("article_media");
     article.setAttribute("role", "article");
     article.setAttribute("aria-roledescription", "media");
-    const mediaElement = image 
-    ? createImageHtmlElement() 
-    : createVideoHtmlElement();
+    const mediaElement = createMediaElement();
     mediaElement.setAttribute("tabindex", "1");
 
     const titleLikesContainer = document.createElement("div");
