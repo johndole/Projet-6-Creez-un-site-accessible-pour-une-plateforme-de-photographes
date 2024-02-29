@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 import { getPhotographers } from "../api";
 
-const form = document.querySelector("form") as HTMLFormElement | null;
+const form = document.querySelector("form") as HTMLFormElement;
 const urlParams = new URLSearchParams(window.location.search);
 const photographerId = urlParams.get("id");
 
@@ -128,6 +128,7 @@ function validateForm() {
 
   if (isFormValid) {
     sendEmail();
+    registrationFormData(form);
     clearRegistrationForm();
     console.log("OK");
     closeModal();
@@ -215,6 +216,20 @@ function validateMessage() {
   }
 }
 
+function registrationFormData(form: HTMLFormElement) {
+  const formData = new FormData(form);
+
+  // Définition d'un type avec une index signature pour autoriser des clés de type string
+  const user: { [key: string]: FormDataEntryValue } = {};
+
+  formData.forEach((value, key) => {
+    user[key] = value;
+  });
+
+  // À ce stade, user est un objet avec des clés de type string et des valeurs de type FormDataEntryValue
+  console.log("Form submitted with data",user);
+}
+
 
 function clearRegistrationForm() {
   form?.reset();
@@ -230,4 +245,4 @@ modal?.addEventListener("keydown", function (event) {
 });
 
 
-export { sendEmail, clearRegistrationForm, displayModal, closeModal, validateForm }
+export {clearRegistrationForm, displayModal, closeModal, validateForm }
