@@ -84,15 +84,18 @@ function createMediaElement() {
     const likesNumElement = document.createElement("p");
     likesNumElement.textContent = `${media.likes}`;
     likesNumElement.classList.add("likesElement");
+    likesNumElement.setAttribute("tabindex", "1");
+    likesNumElement.setAttribute("aria-label", `${media.likes} like`);
 
+    
     const likesIconElement = document.createElement("img");
     likesIconElement.src = media.liked 
         ? "assets/icons/heart-icon-filled.svg" 
         : "assets/icons/heart-icon.svg";
     likesIconElement.classList.add("like-icon");
     likesIconElement.setAttribute("tabindex", "1");
-    const altText = media.liked ? "Action ne pas aimer" : "Action aimer";
-    likesIconElement.setAttribute("alt", altText);
+    const ariaText = media.liked ? "Appuiyer entrer pour ne pas aimer" : "Appuiyer entrer pour aimer";
+    likesIconElement.setAttribute("aria-label", ariaText);
 
     likesIconElement.addEventListener("click", () => {
       media.liked = !media.liked;
@@ -107,8 +110,11 @@ function createMediaElement() {
       ?"assets/icons/heart-icon-filled.svg" 
       : "assets/icons/heart-icon.svg";
       // Set alt text based on whether the media is liked or not liked
-      const altText = media.liked ? "Action ne pas aimer" : "Action aimer";
-      likesIconElement.setAttribute("alt", altText);
+      const ariaText = media.liked ? "Appuiyer entrer pour ne pas aimer" : "Appuiyer entrer pour aimer";
+      likesIconElement.setAttribute("aria-label", ariaText 
+      + " " 
+      + `Il y a ${media.likes} like`);
+    
     }
 
     article.appendChild(mediaElement);

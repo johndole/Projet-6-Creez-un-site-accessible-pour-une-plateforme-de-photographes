@@ -14,6 +14,7 @@ likes.forEach(like=>{
     }); // Update the text content of the element displaying the total like
     if (totalLikesElement) {
         totalLikesElement.textContent = ` ${totalLikes}`;
+        totalLikesElement.setAttribute('aria-label', `Il y a ${totalLikes} total likes`);
     } else {
         console.error('Total likes element not found');
     }
