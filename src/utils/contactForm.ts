@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import { getPhotographers } from "../api";
 
+const modal = document.getElementById("contact_modal");
 const form = document.querySelector("form") as HTMLFormElement;
 const urlParams = new URLSearchParams(window.location.search);
 const photographerId = urlParams.get("id");
@@ -11,7 +12,7 @@ declare const Email: {
   send: (emailData: any) => Promise<string>;
 };
 
-function sendEmail() {
+function sendEmailToPhotographer() {
   const bodyMessage = `First Name:${inputFields.firstName.value}<br/> Last Name: ${inputFields.lastName.value}<br/> Email:${inputFields.email.value} <br/> Message:${inputFields.message.value}`;
   if (photographerId) {
     getPhotographers().then((photographers) => {
@@ -61,7 +62,8 @@ const errorFields = {
   message: document.getElementById("messageError") as HTMLElement,
 };
 
-const modal = document.getElementById("contact_modal");
+
+
 function displayModal() {
   if (modal) {
     modal.style.display = "block";
@@ -112,7 +114,7 @@ addInputValidation(
   validateMessage
 );
 
-function validateForm() {
+function sendAndClearDataFormIfValid() {
   const validationFunctions = [
     validateFirstName,
     validateLastName,
@@ -127,7 +129,7 @@ function validateForm() {
   }
 
   if (isFormValid) {
-    sendEmail();
+    sendEmailToPhotographer();
     registrationFormData(form);
     clearRegistrationForm();
     console.log("OK");
@@ -201,6 +203,7 @@ function validateEmail() {
     return true;
   }
 }
+
 function validateMessage() {
   const value = inputFields.message.value.trim();
   if (value.length < 10) {
@@ -230,7 +233,6 @@ function registrationFormData(form: HTMLFormElement) {
   console.log("Form submitted with data",user);
 }
 
-
 function clearRegistrationForm() {
   form?.reset();
   console.log("Form cleared");
@@ -245,4 +247,4 @@ modal?.addEventListener("keydown", function (event) {
 });
 
 
-export {clearRegistrationForm, displayModal, closeModal, validateForm }
+export {clearRegistrationForm, displayModal, closeModal, sendAndClearDataFormIfValid as validateForm }
