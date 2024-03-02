@@ -3,7 +3,6 @@ import { Photographer } from "../models/photographer";
 import { getPhotographers } from "../api";
 import "../styles/main.css";
 
-
 const photographersSection = document.querySelector(".photographer_section");
 const loaderElement = document.getElementById('loader');
 
@@ -26,18 +25,14 @@ async function displayData(photographers: Photographer[]) {
   });
 }
 
-
 async function init() {
   // Récupère les datas des photographes
   const photographers = await getPhotographers();
   displayData(photographers);
 }
 
-
 init();
 });
-
-
 
 document.addEventListener('keydown', function(event) {
   // Check if the pressed key is Enter

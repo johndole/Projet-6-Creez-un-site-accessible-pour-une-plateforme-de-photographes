@@ -23,15 +23,10 @@ export function photographerTemplate(photographer: Photographer) {
     + "sont slogan est " + tagline
     +"Prix de la prestation "+ price+"par jour")
     
- 
-
-
     const imgElement = document.createElement("img");
     imgElement.classList.add('imgElement');
-    
     // Set up an event handler for when the image fails to load
     imgElement.onerror = function () {
-      // Image failed to load, set a default image as the source
     imgElement.src = 'assets/photographers/account.png';
     };
     
@@ -42,7 +37,6 @@ export function photographerTemplate(photographer: Photographer) {
     const nameElement = document.createElement("h2");
     nameElement.textContent = name;
     nameElement.classList.add('nameElement');
-   
 
     const locationElement = document.createElement("p");
     locationElement.textContent = `${city}, ${country}`;
@@ -62,7 +56,6 @@ export function photographerTemplate(photographer: Photographer) {
     nameForm.classList.add('nameForm');
     headerForm?.appendChild(nameForm);
     
-
     const photographPortrait = document.querySelector('.photograph-portrait');
     const photographPortraitImg = document.createElement("img");
     photographPortraitImg.setAttribute("src", portrait);
@@ -87,9 +80,6 @@ export function photographerTemplate(photographer: Photographer) {
     article.appendChild(locationElement);
     article.appendChild(taglineElement);
     article.appendChild(prixElement);
-  
-    // ARIA attributes for the entire article
-  
 
     return article;
   }

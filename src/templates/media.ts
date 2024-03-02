@@ -1,16 +1,16 @@
 import { Media } from "../models/media";
 
   //type
-  abstract class MediaElement {
-    constructor(protected media: Media) {}
+  abstract class MediaElement { 
+    constructor(protected media: Media) {} 
   
-    abstract createElement(): HTMLElement;
+    abstract createElement(): HTMLElement; //Méthode, logique de la classe
   }
 
 export function mediaTemplate(media: Media) {
   const { id, photographerId, title, image, video, likes, date, price } = media;
 
-  //sous class FP
+  //sous class FP, création de l'element
   class ImageElement extends MediaElement {
     createElement(): HTMLElement {
     const imgElement = document.createElement("img");
@@ -68,6 +68,7 @@ function createMediaElement() {
     article.classList.add("article_media");
     article.setAttribute("role", "article");
     article.setAttribute("aria-roledescription", "media");
+    
     const mediaElement = createMediaElement();
     mediaElement.setAttribute("tabindex", "1");
 
@@ -87,14 +88,15 @@ function createMediaElement() {
     likesNumElement.setAttribute("tabindex", "1");
     likesNumElement.setAttribute("aria-label", `${media.likes} like`);
 
-    
     const likesIconElement = document.createElement("img");
     likesIconElement.src = media.liked 
         ? "assets/icons/heart-icon-filled.svg" 
         : "assets/icons/heart-icon.svg";
     likesIconElement.classList.add("like-icon");
     likesIconElement.setAttribute("tabindex", "1");
-    const ariaText = media.liked ? "Appuiyer entrer pour ne pas aimer" : "Appuiyer entrer pour aimer";
+    const ariaText = media.liked 
+    ? "Appuiyer entrer pour ne pas aimer" 
+    : "Appuiyer entrer pour aimer";
     likesIconElement.setAttribute("aria-label", ariaText);
 
     likesIconElement.addEventListener("click", () => {
@@ -110,7 +112,9 @@ function createMediaElement() {
       ?"assets/icons/heart-icon-filled.svg" 
       : "assets/icons/heart-icon.svg";
       // Set alt text based on whether the media is liked or not liked
-      const ariaText = media.liked ? "Appuiyer entrer pour ne pas aimer" : "Appuiyer entrer pour aimer";
+      const ariaText = media.liked 
+      ? "Appuiyer entrer pour ne pas aimer" 
+      : "Appuiyer entrer pour aimer";
       likesIconElement.setAttribute("aria-label", ariaText 
       + " " 
       + `Il y a ${media.likes} like`);

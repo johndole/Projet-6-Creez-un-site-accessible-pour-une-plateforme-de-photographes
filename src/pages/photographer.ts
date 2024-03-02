@@ -93,12 +93,11 @@ document.addEventListener('DOMContentLoaded', function () {
           console.error('Media section not found');
           return;
         }
+        
         // Update the total likes
         let totalLikes = mediaItems.reduce((sum, media) => sum + media.likes, 0);
         totalLikesElement.textContent = ` ${totalLikes}`;
         updateLikes(mediaItems);
-
-
 
         // Attach click event listener to the dropdown for sorting
         initDropdown(mediaItems, mediaTemplate, "gallery");
