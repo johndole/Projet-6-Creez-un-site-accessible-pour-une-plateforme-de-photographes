@@ -37,6 +37,8 @@ export async function getPhotographersMedia(): Promise<Media[]> {
  
     if (Array.isArray(data.media)) {
       return data.media.map<Media>((media) => ({
+        //opération spread (...) est utilisée pour copier toutes les propriétés existantes 
+        //de l'objet media dans un nouvel objet.
         ...media,
         ...!!media.image && { image: `assets/Portfolio/${media.photographerId}/${media.image}` },
         ...!!media.video && { video: `assets/Portfolio/${media.photographerId}/${media.video}` },

@@ -99,21 +99,6 @@
     border: 1px solid whitesmoke;
     position: relative;
   }
-  /*
-  .sort__button[aria-selected="true"]::before {
-    content: url("/assets/icons/arrow-down.svg");
-    position: absolute;
-    right: 10px;
-    opacity: 1;
-  }
-
-  .sort__button[aria-selected="true"].open {
-    content: url("/assets/icons/arrow-up.svg");
-    position: absolute;
-    right: 10px;
-    opacity: 1;
-  }
-  */
   
   .sort__button:hover {
     background-color: #901c1c;

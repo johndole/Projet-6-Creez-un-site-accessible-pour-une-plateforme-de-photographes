@@ -7,7 +7,7 @@ import { getPhotographers, getPhotographersMedia } from "../api";
 import { displayModal, closeModal, validateForm } from "../utils/contactForm";
 import { Media } from "../models/media";
 import { showLightbox } from "../utils/lightBoxModal";
-import { initDropdown, toggleDropdown } from "../utils/SortGallery";
+import { initDropdown} from "../utils/SortGallery";
 import { updateLikes } from "../utils/likes";
 
 
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Attach click event listener to the dropdown for sorting
         initDropdown(mediaItems, mediaTemplate, "gallery");
-        toggleDropdown();
+ 
       })
       .catch(error => console.error('Error fetching media:', error));
   };
