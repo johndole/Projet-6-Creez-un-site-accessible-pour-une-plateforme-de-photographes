@@ -10,6 +10,11 @@
   },
   "devDependencies": {
     "typescript": "^5.2.2",
-    "vite": "^5.0.0"
+    "vite": "^5.0.0",
+    "@types/sweetalert2": "^11.0.0" 
+  },
+  "dependencies": {
+    "sweetalert2": "^11.0.20"
   }
 }
+
