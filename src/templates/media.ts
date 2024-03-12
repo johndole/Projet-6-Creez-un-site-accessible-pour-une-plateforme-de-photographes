@@ -95,8 +95,8 @@ function createMediaElement() {
     likesIconElement.classList.add("like-icon");
     likesIconElement.setAttribute("tabindex", "1");
     const ariaText = media.liked 
-    ? "Appuiyer entrer pour ne pas aimer" 
-    : "Appuiyer entrer pour aimer";
+    ? "Appuyer entrer pour ne pas aimer" 
+    : "Appuyer entrer pour aimer";
     likesIconElement.setAttribute("aria-label", ariaText);
 
     likesIconElement.addEventListener("click", () => {
@@ -113,8 +113,8 @@ function createMediaElement() {
       : "assets/icons/heart-icon.svg";
       // Set alt text based on whether the media is liked or not liked
       const ariaText = media.liked 
-      ? "Appuiyer entrer pour ne pas aimer" 
-      : "Appuiyer entrer pour aimer";
+      ? "Appuyer entrer pour ne pas aimer" 
+      : "Appuyer entrer pour aimer";
       likesIconElement.setAttribute("aria-label", ariaText 
       + " " 
       + `Il y a ${media.likes} like`);
